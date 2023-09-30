@@ -30,6 +30,7 @@ class _NavBarState extends State<NavBar> {
       // extendBody: true,
       body: pages[_currentIndex],
       bottomNavigationBar: DotNavigationBar(
+        backgroundColor: Colors.grey,
         currentIndex: _currentIndex,
         onTap: changePage,
         items: [
