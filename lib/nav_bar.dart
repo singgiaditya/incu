@@ -1,6 +1,6 @@
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:incu/main.dart';
+import 'package:incu/nama_mhs.dart';
 import 'package:incu/profile.dart';
 
 class NavBar extends StatefulWidget {
