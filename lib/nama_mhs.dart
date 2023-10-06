@@ -8,19 +8,29 @@ class NamaMhs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List nama = ["Fajar Triatmojo", "Singgi aditya", "Aditya Ramadhan"];
-    List nim = ["220605110038", "220605110067", "220605110028"];
-    List ttl = [
-      "Malang 23 Desember 2002",
-      "Pasuruan 28 Oktober 2003",
-      "Pasuruan 12 Januari 2003"
+    List data = [
+      {
+        "nama": "Fajar triatmojo",
+        "nim": "220605110038",
+        "ttl": "Malang 23 Desember 2002"
+      },
+      {
+        "nama": "Singgi Aditya",
+        "nim": "220605110068",
+        "ttl": "Malang 28 Oktober 2003"
+      },
+      {
+        "nama": "Aditya Ramadhan",
+        "nim": "220605110067",
+        "ttl": "Pasuruan 28 Oktober 2003"
+      },
     ];
     return Scaffold(
       appBar: AppBar(
         title: Text('Mahasiswa'),
       ),
       body: ListView.builder(
-        itemCount: nama.length,
+        itemCount: data.length,
         itemBuilder: (BuildContext context, int index) {
           return Column(
             children: [
@@ -30,9 +40,9 @@ class NamaMhs extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => MhsSatu(
-                          nama: nama[index],
-                          nim: nim[index],
-                          ttl: ttl[index],
+                          nama: data[index]["nama"],
+                          nim: data[index]["nim"],
+                          ttl: data[index]["ttl"],
                         ),
                       ));
                 },
@@ -46,18 +56,18 @@ class NamaMhs extends StatelessWidget {
                         size: 150,
                       ),
                       Text(
-                        nama[index],
+                        data[index]["nama"],
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        nim[index],
+                        data[index]["nim"],
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        ttl[index],
+                        data[index]["ttl"],
                         style: TextStyle(fontSize: 18),
                       ),
                       Divider()
