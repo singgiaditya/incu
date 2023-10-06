@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
 class MhsSatu extends StatelessWidget {
-  const MhsSatu({super.key});
+  final String nama;
+  final String nim;
+  final String ttl;
+  const MhsSatu(
+      {super.key, required this.nama, required this.nim, required this.ttl});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +23,18 @@ class MhsSatu extends StatelessWidget {
               size: 150,
             ),
             Text(
-              'Fajar Triatmojo',
+              nama,
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              '220605110152',
+              nim,
               style: TextStyle(fontSize: 18),
             ),
             Text(
-              'Malang 23 Desember 2002',
+              ttl,
               style: TextStyle(fontSize: 18),
             ),
             ElevatedButton(

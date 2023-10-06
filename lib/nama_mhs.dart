@@ -8,20 +8,32 @@ class NamaMhs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List nama = ["Fajar Triatmojo", "Singgi aditya", "Aditya Ramadhan"];
+    List nim = ["220605110038", "220605110067", "220605110028"];
+    List ttl = [
+      "Malang 23 Desember 2002",
+      "Pasuruan 28 Oktober 2003",
+      "Pasuruan 12 Januari 2003"
+    ];
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Mahasiswa'),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
+      appBar: AppBar(
+        title: Text('Mahasiswa'),
+      ),
+      body: ListView.builder(
+        itemCount: nama.length,
+        itemBuilder: (BuildContext context, int index) {
+          return Column(
             children: [
               GestureDetector(
                 onTap: () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => MhsSatu(),
+                        builder: (context) => MhsSatu(
+                          nama: nama[index],
+                          nim: nim[index],
+                          ttl: ttl[index],
+                        ),
                       ));
                 },
                 child: Padding(
@@ -34,88 +46,29 @@ class NamaMhs extends StatelessWidget {
                         size: 150,
                       ),
                       Text(
-                        'Fajar Triatmojo',
+                        nama[index],
                         style: TextStyle(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Text(
-                        '220605110152',
+                        nim[index],
                         style: TextStyle(fontSize: 18),
                       ),
                       Text(
-                        'Malang 23 Desember 2002',
+                        ttl[index],
                         style: TextStyle(fontSize: 18),
                       ),
-                    ],
-                  ),
-                ),
-              ),
-              Divider(thickness: 2),
-              GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.person,
-                        size: 150,
-                      ),
-                      Text(
-                        'Abid Bachtiar',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '220605110149',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        'Ponorogo 12 Mei 2001',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Divider(thickness: 2),
-              GestureDetector(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(24.0),
-                  child: Column(
-                    // crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Icon(
-                        Icons.person,
-                        size: 150,
-                      ),
-                      Text(
-                        'Nora Desiana',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        '220605110147',
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      Text(
-                        'Malang 30 Desember 2002',
-                        style: TextStyle(fontSize: 18),
-                      ),
+                      Divider()
                     ],
                   ),
                 ),
               ),
             ],
-          ),
-        ));
+          );
+        },
+      ),
+    );
   }
 }
